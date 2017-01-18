@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>识货- 高性价比商品导购</title>
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<script type="text/javascript" src="js/js.js" ></script>
+		<script type="text/javascript" src="js/jquery.js" ></script>
+		<script>
+			function $(id) {
+     			 return typeof id==='string'?document.getElementById(id):id;
+    		}
+    		window.onload=function(){
+      		var index=0;
+      		var timer=null;
+      		var pic=$("pic").getElementsByTagName("li");
+      		var num=$("num").getElementsByTagName("li");
+      		var flash=$("flash");
+      		var left=$("left");
+      		var right=$("right");
+      
+      left.onclick=function(){
+        index--;
+        if (index<0) {index=num.length-1};
+        changeOption(index);
+      }
+      
+      right.onclick=function(){
+        index++;
+        if (index>=num.length) {index=0};
+        changeOption(index);
+      }      
+     
+      flash.onmouseover=function(){
+        clearInterval(timer);
+      }
+  
+      flash.onmouseout=function(){
+        timer=setInterval(run,2000)
+      }
+    
+      for(var i=0;i<num.length;i++){
+        num[i].id=i;
+        num[i].onmouseover=function(){
+          clearInterval(timer);
+          changeOption(this.id);
+        }
+      }    
+      
+      timer=setInterval(run,1000)
+      
+      function run(){
+        index++;
+        if (index>=num.length) {index=0};
+        changeOption(index);
+      }
+     
+      function changeOption(curindex){
+        console.log(index)
+        for(var j=0;j<num.length;j++){
+          pic[j].style.display="none";
+          num[j].className="";
+        }
+        pic[curindex].style.display="block";
+        num[curindex].className="active";
+        index=curindex;
+      }
+      show1();
+      hidd();
+      closeOne();
+    }
+		</script>
+	<script type="text/javascript">
+		
+	</script>
+	</head>
+	<body>
+		<header>
+			<a id="first" href="#"></a>
+			<div class="nei_1">
+				<div id="xiao1">
+				<img src="images/logo_03.jpg" />
+				</div>
+				<input id="input_01" type="text" />
+				<input id="input_02" type="submit" value=""/>
+				<div id="up1">
+					<img src="images/erweima_03.jpg" />
+				</div>
+				<ul id="ul_01">
+					<li><a href="#" style="color: #B50000;">首页</a></li>
+					<li id="more_02"><a href="#">装备</a></li>
+					<li><a href="#">海淘</a></li>
+					<li><a href="#">团购</a></li>
+					<li><a href="#">推荐店铺</a></li>
+					<li><a href="#">识物</a></li>
+					<li><a href="#">晒物</a></li>
+					<li id="more_01" style="border: none;"><a href="#">更多</a></li>
+				</ul>
+				<span id="span_01">
+					<img src="images/hot.png" />
+				</span>
+					<div id="two_dimension">
+						<img src="images/erweima1_03_03.jpg" />
+					</div>
+					
+					<div id="show_2">
+						<a href="#">回答</a>
+						<a href="#">优惠券</a>
+					</div>
+					
+					<ul id="ul_02">
+						<li>登录</li>
+						<LI>|</LI>
+						<li>注册</li>
+					</ul>
+					<div id="shopping">
+						<img  src="images/shopping_03.jpg"/>
+					</div>
+					
+			</div>
+			<div id="show_3">
+						<div id="little_01">
+							<img src="images/shoes01_03.jpg" /><a href="#">篮球</a>
+						</div>
+						<div id="little_02">
+							<img src="images/shoes02_03.jpg" /><a href="#">跑步</a>
+						</div>
+						<div id="little_03">
+							<img src=" images/shoes03_05.jpg" /><a href="#">休闲</a>
+						</div>
+			</div>
+		</header>
+		<section>
+			<div id="left">
+				<img src="images/01_01_03.jpg" />
+				<ul id="ul_03">
+					<li><a href="#">户外运动</a></li>
+					<li><a href="#">服装服饰</a></li>
+					<li><a href="#">电脑数码</a></li>
+					<li><a href="#">食品营养</a></li>
+					<li><a href="#">家居生活</a></li>
+					<li><a href="#">其他分类</a></li>
+					
+				</ul>
+				<img src="images/01_02_06.jpg" />
+				<ul id="ul_04">
+					<li><a href="#">天猫</a></li>
+					<li><a href="#">京东</a></li>
+					<li><a href="#">考拉</a></li>
+					<li><a href="#">耐克</a></li>
+					<li><a href="#">有货</a></li>
+					<li><a href="#">亚马逊</a></li>
+					<li><a href="#">JRs商城</a></li>
+					<li><a href="#">银泰</a></li>
+					<li><a href="#">其他</a></li>
+				</ul>
+			</div>
+			<div id="flash">
+    			<ul id="pic">
+      				<li style="display:block"><img src="images/1.jpg" alt=""/></li>
+      				<li><img src="images/2.jpg" alt=""/></li>
+      				<li><img src="images/3.jpg" alt=""/></li>
+      				<li><img src="images/4.jpg" alt=""/></li>
+      				<li><img src="images/5.jpg" alt=""/></li>
+      				<li><img src="images/6.jpg" alt=""/></li>
+    			</ul>
+    			<ol id="num">
+      			<li class="active">1</li>
+      			<li>2</li>
+      			<li>3</li>
+      			<li>4</li>
+      			<li>5</li>
+      			<li>6</li>
+    			</ol>
+    			<a href="javascript:;" class="arrow" id="zuo"><</a>
+    			<a href="javascript:;" class="arrow" id="you">></a> 
+  			</div>
+			<div id="right">
+				<div id="up_01">
+					<img src="images/yonghu.png" />
+					<p id="P_1">HI,你好</p>
+					<p id="P_2"><a href="login.html">点击登录，</a>发现更多精彩</p>
+					<span id="span_02"><a href="login.html">登录</a></span>
+					<span id="span_03"><a href="register.html">免费注册</a></span>
+				</div>
+				<div id="up_02">
+					<img src="images/photo0001_03.jpg" />
+				</div>
+				<div id="up_03">
+					<img src="images/photo0002_03_03.jpg" />
+				</div>
+			</div>
+			<div id="btm_1">
+				<div id="div_01"><img src="images/photo0004_03_03.jpg"/></div>
+				<div id="div_02">
+					<a href="#">识货每日白菜(1.16更新)</a>
+					<a href="#">联合利华半价放送</a>
+					<a href="#">有货节终促低至三折</a>
+					<a href="#">识货一月兼职招聘</a>
+					<a href="#">识货&亚马逊专题</a><br /><br />
+					<a href="#">1.16今日海淘特价立减</a>
+					&nbsp;&nbsp;<a href="#">海淘人气热销精选</a>
+					&nbsp;<a href="#">下单赢取境外机票</a>
+					&nbsp;&nbsp;&nbsp;<a href="#">现货-正品旅游鞋</a>
+					&nbsp;&nbsp;<a href="#">Nike满99赠礼袋</a>
+					
+				</div>
+				<div id="div_03" style="border: none;"><img src="images/photo0005_03_05.jpg"/>知&nbsp;"识"&nbsp;就是力量 &nbsp;<br /><br />用心提供精选好物</div>
+			</div>
+		</section>
+		
+		<div id="fixed_01">
+			<div id="clear_01">X</div>
+			<div id="two_dimension_02">
+				<img src="images/fixed1_03.jpg" />
+			</div>
+		</div>
+		<div id="fixed_02">
+			<img src="images/购物车.png" />
+		</div>
+		<div id="fixed_03">
+			<a href="#first"><img src="images/箭头.png" /></a>
+		</div>
+		<div class="allContext">
+			<div style="border: 1px solid #DB2529;">
+				<img src="images/cc_01_03.jpg" style="height: 200px;" />
+				<span class="yuanjiao" >JUST DO IT</span>
+				<p class="black1">Nike官网喜庆洋洋迎新春！<span class="red">折上八折限时开启</span></p><br /><br />
+				&nbsp;&nbsp;&nbsp;&nbsp;耐克官网折扣区折上8折（部分限购商品除外），1月19日-1月22日限时开启！新年装备<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;现在可以买起来了<br />
+				<span class="clock">
+					<img src="images/钟表.png"/>2017-1-17 11:27:42&nbsp;&nbsp;&nbsp;|&nbsp;<br />
+				</span>
+				<span class="clock2">
+					<img src="images/心.png" />157
+				</span>
+				<span class="clock2">
+					<img src="images/留言.png"/>29
+				</span>
+				<span class="clock3">
+					Nike
+				</span>
+				<span class="clock4">
+					<a href="#">直达链接</a>
+				</span>
+			</div>
+			<div >
+				<img src="images/cc_02_06.jpg" style="height: 200px;" />
+				<span class="yuanjiao" >时尚潮流</span>
+				<p class="black1">超值年货任你选——潮男搭配<span class="red">精品男士上衣，限时抢购</span></p><br /><br />
+				&nbsp;&nbsp;&nbsp;&nbsp;新年特价抢购，潮男搭配，教你怎样成为型男<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;不用犹豫Comeon！<br />
+				<span class="clock">
+					<img src="images/钟表.png"/>2017-1-17 12:12:45&nbsp;&nbsp;&nbsp;|&nbsp;<br />
+				</span>
+				<span class="clock2">
+					<img src="images/心.png" />191
+				</span>
+				<span class="clock2">
+					<img src="images/留言.png"/>90
+				</span>
+				<span class="clock3">
+					亚马逊
+				</span>
+				<span class="clock4">
+					<a href="#">直达链接</a>
+				</span>
+			</div>
+			<div >
+				<img src="images/cc_03_08.jpg" style="height: 200px;" />
+				<span class="yuanjiao" >有货节</span>
+				<p class="black1">新年你的需要<span class="red">时尚休闲男鞋！特价销售</span></p><br /><br />
+				&nbsp;&nbsp;&nbsp;&nbsp;轻快便利时尚休闲男鞋，穿出你的YOUNG,现在下单还可享受折上折优惠<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;只需988元，让你轻松变男神！召集起你身边的小伙伴，一起加入进来吧<br />
+				<span class="clock">
+					<img src="images/钟表.png"/>2017-1-17 12:12:50&nbsp;&nbsp;&nbsp;|&nbsp;<br />
+				</span>
+				<span class="clock2">
+					<img src="images/心.png" />188
+				</span>
+				<span class="clock2">
+					<img src="images/留言.png"/>29
+				</span>
+				<span class="clock3">
+					李宁
+				</span>
+				<span class="clock4">
+					<a href="#">直达链接</a>
+				</span>
+			</div>
+			<div >
+				<img src="images/cc_05_06.jpg" style="height: 200px;" />
+				<span class="yuanjiao" >潮流控</span>
+				<p class="black1">珍藏版！——雷霆队服<span class="red">折上限购</span></p><br /><br />
+				&nbsp;&nbsp;&nbsp;&nbsp;耐克官网折扣区折上8折（部分限购商品除外），1月19日-1月22日限时开启！新年装备<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;现在可以买起来了<br />
+				<span class="clock">
+					<img src="images/钟表.png"/>2017-1-17 12:12:55&nbsp;&nbsp;&nbsp;|&nbsp;<br />
+				</span>
+				<span class="clock2">
+					<img src="images/心.png" />121
+				</span>
+				<span class="clock2">
+					<img src="images/留言.png"/>29
+				</span>
+				<span class="clock3">
+					乔丹
+				</span>
+				<span class="clock4">
+					<a href="#">直达链接</a>
+				</span>
+			</div>
+			<div >
+				<img src="images/cc_06_08.jpg" style="height: 200px;" />
+				<span class="yuanjiao" >全网白菜</span>
+				<p class="black1">男士中长款大衣，专为成熟男士设计<span class="red">六七折，先到先得</span></p><br /><br />
+				&nbsp;&nbsp;&nbsp;&nbsp;中长款修身男士大衣，立领，穿时尚。时尚领导者品牌<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;值得信赖，驰名商标<br />
+				<span class="clock">
+					<img src="images/钟表.png"/>2017-1-17 12:12:58&nbsp;&nbsp;&nbsp;|&nbsp;<br />
+				</span>
+				<span class="clock2">
+					<img src="images/心.png" />471
+				</span>
+				<span class="clock2">
+					<img src="images/留言.png"/>82
+				</span>
+				<span class="clock3">
+					贵人鸟
+				</span>
+				<span class="clock4">
+					<a href="#">直达链接</a>
+				</span>
+			</div>
+			<div >
+				<img src="images/context_03_03.jpg" style="height: 200px;" />
+				<span class="yuanjiao" >淘淘特价商品</span>
+				<p class="black1">秋冬神器：男士保暖内衣<span class="red">著名品牌，专为男士设计</span></p><br /><br />
+				&nbsp;&nbsp;&nbsp;&nbsp;符合男士人体美工，为你塑造完美身形<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;手快有，手慢无<br />
+				<span class="clock">
+					<img src="images/钟表.png"/>2017-1-17 12:13:02&nbsp;&nbsp;&nbsp;|&nbsp;<br />
+				</span>
+				<span class="clock2">
+					<img src="images/心.png" />572
+				</span>
+				<span class="clock2">
+					<img src="images/留言.png"/>66
+				</span>
+				<span class="clock3">
+					Nike
+				</span>
+				<span class="clock4">
+					<a href="#">直达链接</a>
+				</span>
+			</div>
+			<div >
+				<img src="images/context_02_03.jpg" style="height: 200px;" />
+				<span class="yuanjiao" >精选商品</span>
+				<p class="black1">春节两件套<span class="red">衬衫+外套。仅¥757</span></p><br /><br />
+				&nbsp;&nbsp;&nbsp;&nbsp;春节特惠，男士时尚两件套，买到即赚。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;仅剩 14:22:37 结束<br />
+				<span class="clock">
+					<img src="images/钟表.png"/>2017-1-17 11:27:42&nbsp;&nbsp;&nbsp;|&nbsp;<br />
+				</span>
+				<span class="clock2">
+					<img src="images/心.png" />892
+				</span>
+				<span class="clock2">
+					<img src="images/留言.png"/>99
+				</span>
+				<span class="clock3">
+					Nike
+				</span>
+				<span class="clock4">
+					<a href="#">直达链接</a>
+				</span>
+			</div>
+			<div >
+				<img src="images/cc_10_03.jpg" style="height: 200px;" />
+				<span class="yuanjiao" >优质晒物</span>
+				<p class="black1">#识战测评# 用实力证明自己不是装备党<span class="red"></span></p><br /><br />
+				&nbsp;&nbsp;&nbsp;&nbsp;很多朋友打开识货都只是来晒物频道看看最近的商品。有没有什么好的商品，好鞋值得入手<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;这一次，不如跟鞋友们好好聊聊专业的事情！加入球鞋测评队伍<br />
+				<span class="clock">
+					<img src="images/钟表.png"/>2017-1-17 11:27:42&nbsp;&nbsp;&nbsp;|&nbsp;<br />
+				</span>
+				<span class="clock2">
+					<img src="images/心.png" />626
+				</span>
+				<span class="clock2">
+					<img src="images/留言.png"/>17
+				</span>
+				<span class="clock3">
+					拉轰
+				</span>
+				<span class="clock4">
+					<a href="#">直达链接</a>
+				</span>
+			</div>
+			<div >
+				<img  src="images/cc_11_06.jpg" style="height: 200px;" />
+				<span class="yuanjiao" >全网白菜</span>
+				<p class="black1">全网直邮！Bviger宝格丽艾娃海洋男士喷雾<span class="red">仅¥217</span></p><br /><br />
+				&nbsp;&nbsp;&nbsp;&nbsp;Bviger宝格丽艾娃海洋男士喷雾  海洋男士清香喷雾 此款香水收到水中倒影的灵感<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;BALIWD JIASDJWS WIJAS WAD 散发清香 高贵 和男性化气息<br />
+				<span class="clock">
+					<img src="images/钟表.png"/>2017-1-17 11:27:42&nbsp;&nbsp;&nbsp;|&nbsp;<br />
+				</span>
+				<span class="clock2">
+					<img src="images/心.png" />892
+				</span>
+				<span class="clock2">
+					<img src="images/留言.png"/>99
+				</span>
+				<span class="clock3">
+					Nike
+				</span>
+				<span class="clock4">
+					<a href="#">直达链接</a>
+				</span>
+			</div>
+			<div >
+				<img src="images/cc_12_08.jpg" style="height: 200px;" />
+				<span class="yuanjiao" >淘淘特价精选</span>
+				<p class="black1">成熟稳重！Kenneth cole Simpplified 男鞋<span class="red">$24.59（到手￥298）</span></p><br /><br />
+				&nbsp;&nbsp;&nbsp;&nbsp;商务的方头款式！美国亚马逊目前8码销售$23.98 肯尼斯科尔男款<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;采用抛光面料，皮质感相当的不错。值得入手<br />
+				<span class="clock">
+					<img src="images/钟表.png"/>2017-1-17 19:54:12&nbsp;&nbsp;&nbsp;|&nbsp;<br />
+				</span>
+				<span class="clock2">
+					<img src="images/心.png" />811
+				</span>
+				<span class="clock2">
+					<img src="images/留言.png"/>77
+				</span>
+				<span class="clock3">
+					天猫
+				</span>
+				<span class="clock4">
+					<a href="#">直达链接</a>
+				</span>
+			</div>
+			
+		</div>
+		<div id="contextOther">
+			<a href="#"><img src="images/sale_03.jpg" /></a>
+			<div id="right1">
+				<p class="black">热门专题</p>
+				<ul>
+					<li>
+						<img src="images/photo01_03_03.jpg" style="height: 50px;"/>
+						<p class="p_3">年终盘点|2016年度十<br />大实战球鞋榜单</p>
+					</li>
+					<li>
+						<img src="images/photo02_03_06.jpg" style="height: 50px;" />
+						<p class="p_3">年度大总结，盘点2016球<br />鞋十宗“最”</p>
+					</li>
+					<li>
+						<img src="images/photo03_03_08.jpg" style="height: 50px;"/>
+						<p class="p_3">圣诞大战再无科比——科<br />比十六次大战和脚上</p>
+					</li>
+					<li>
+						<img src="images/photo04_03_10.jpg" style="height: 50px;"/>
+						<p class="p_3">熬夜轰趴蓬头垢面？几<br />步让你清爽出门</p>
+					</li>
+					<li>
+						<img src="images/photo05_03_12.jpg" style="height: 50px;"/>
+						<p class="p_3">i can do all things&nbsp;|&nbsp;细数<br />与库里有关的装备球鞋</p>
+					</li>
+					<li>
+						<img src="images/photo06_03_14.jpg"/ style="height: 50px;">
+						<p class="p_3">你值得等待——2017年最<br />期待复刻篮球鞋大猜想</p>
+					</li>
+					
+					
+					
+				</ul>
+			</div>
+			<a href="#"><img src="images/photo0006_03_03.jpg" style="height: 400px;"/></a>
+			<div id="right2">
+				<p class="black">识货推荐</p>
+				<ul>
+					<li>
+						<img src="images/photo07_03_03.jpg" style="height: 50px;"/>
+						<p class="p_4">Nike官网喜气洋洋迎<br />新春！</p><br />
+						<a href="#">折上八折限时开启</a>
+					</li>
+					<li>
+						<img src="images/photo08_03_06.jpg" style="height: 50px;"/>
+						<p class="p_4">2016你肯定买了以下单<br />品，可是他们还能撑过</p><br />
+						<a href="#">2016火遍全球的潮流热点</a>
+					</li>
+					<li>
+						<img src="images/photo09_03_08.jpg" style="height: 50px;"/>
+						<p class="p_4">促销活动：6pm精选<br />COACH男女包限时5</p><br />
+						<a href="#">新年礼物好选择，国内外差</a>
+					</li>
+				</ul>
+			</div>
+			<a href="#"><img src="images/photo0007_03_03.jpg"/></a>
+		</div>
+	</body>
+</html>
